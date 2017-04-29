@@ -25,6 +25,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+/**
+ * @author Martin Pfeffer
+ *         <a href="mailto:martin.pfeffer@celox.io">martin.pfeffer@celox.io</a>
+ * @see <a href="https://celox.io">https://celox.io</a>
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText mEtAddress;

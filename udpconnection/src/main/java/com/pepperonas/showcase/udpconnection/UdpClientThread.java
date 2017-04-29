@@ -30,9 +30,7 @@ import static com.pepperonas.showcase.udpconnection.MainActivity.UdpClientHandle
 
 /**
  * @author Martin Pfeffer
- *         <a href="mailto:martin.pfeffer@kjtech.com">martin.pfeffer@kjtech.com</a>,
  *         <a href="mailto:martin.pfeffer@celox.io">martin.pfeffer@celox.io</a>
- * @see <a href="http://www.kjtech.de">www.kjtech.de</a>
  * @see <a href="https://celox.io">https://celox.io</a>
  */
 

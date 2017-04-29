@@ -24,6 +24,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * @author Martin Pfeffer
+ *         <a href="mailto:martin.pfeffer@celox.io">martin.pfeffer@celox.io</a>
+ * @see <a href="https://celox.io">https://celox.io</a>
+ */
+
 public class Main {
 
     public static void main(String[] args) throws IOException {
