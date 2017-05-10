@@ -1,12 +1,27 @@
-# UdpConnection
+# SendJson
 
-This module shows how to make Android communicating with a Java server using the UDP protocol.
+This module shows how to send a JSON Object to a servlet. The JSON Object will be written to a file called out.txt
 
 
-## Structure
+## Structure & Setup
 
-The server module is located in `java_console_app`. Choose your favorite Java-IDE to import and run the sources inside.
-    
+The server-side code is located in `php_server`. Use XAMPP to run the code inside `test.php`.
+
+Don't forget to alter the IP-address inside `MainActivity.java`.
+
+You may want to use `ifconfig` (macOS / Linux) or `ipconfig` (Windows) to get your IP-address.
+
+
+## Permissions
+
+`<uses-permission android:name="android.permission.INTERNET" />
+ <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />`
+
+
+## Dependencies
+
+Add in the module gradle `useLibrary 'org.apache.http.legacy'`
+
 
 ## Contact
 
@@ -29,5 +44,3 @@ The server module is located in `java_console_app`. Choose your favorite Java-ID
     See the License for the specific language governing permissions and
     limitations under the License.
 
-
-Screenshot size tablet: 600x478
