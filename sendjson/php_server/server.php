@@ -145,6 +145,7 @@ function insertJson()
 
         // print sql statement to verify (not needed)
         fwrite($fp_format, $sql);
+        fwrite($fp_format, PHP_EOL); // new line
 
         if (mysqli_query($conn, $sql)) {
             echo "Records inserted successfully.";
