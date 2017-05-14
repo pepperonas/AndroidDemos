@@ -120,6 +120,13 @@ function insertJson()
     $jsonString = $_POST['json'];
     $json = json_decode($jsonString, true);
 
+    fwrite($fp_format, "Mapping...");
+    fwrite($fp_format, PHP_EOL); // new line
+    fwrite($fp_format, $jsonString);
+    fwrite($fp_format, PHP_EOL . PHP_EOL); // new line
+
+    fwrite($fp_format, "Insert...");
+    fwrite($fp_format, PHP_EOL); // new line
     // get size of the container and iterate
     $size = $json[0]["size"];
     for ($i = 0; $i < $size; $i++) {
@@ -133,8 +140,6 @@ function insertJson()
         }
         $ks = substr_replace($ks, "", -1);
         $vs = substr_replace($vs, "", -1);
-        fwrite($fp_format, $ks . " " . $vs);
-        fwrite($fp_format, PHP_EOL); // new line
 
         $sql = "INSERT INTO $tbl_data ( ".$ks." ) VALUES (  ".$vs." )";
 
