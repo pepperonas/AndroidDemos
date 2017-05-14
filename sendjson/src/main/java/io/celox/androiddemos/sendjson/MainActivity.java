@@ -56,9 +56,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String IP = "192.168.178.86";
 
     private enum PhpFunction {
-        WRITE_JSON, CREATE_DB, INSERT_JSON, INSERT_JSON_COMP
+        WRITE_JSON, CREATE_DB, INSERT_JSON, PRINT_PHP_INFO
     }
 
+
+    private String getAction(PhpFunction which) {
+        switch (which) {
+            case WRITE_JSON:
+                return "writeJsonInFile";
+            case CREATE_DB:
+                return "createDatabase";
+            case INSERT_JSON:
+                return "insertJson";
+            case PRINT_PHP_INFO:
+                return "printPhpInfo";
+            default:
+                return "";
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,68 +96,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btn_write_json:
                 new HttpAsyncTask().execute(
-                        "http://" + IP + "/sendjson/test.php?f=" + getAction(PhpFunction.WRITE_JSON));
+                        "http://" + IP + "/sendjson/server.php?f=" + getAction(PhpFunction.WRITE_JSON));
                 break;
 
             case R.id.btn_create_database:
                 new HttpAsyncTask().execute(
-                        "http://" + IP + "/sendjson/test.php?f=" + getAction(PhpFunction.CREATE_DB));
+                        "http://" + IP + "/sendjson/server.php?f=" + getAction(PhpFunction.CREATE_DB));
                 break;
 
             case R.id.btn_insert_json:
                 new HttpAsyncTask().execute(
-                        "http://" + IP + "/sendjson/test.php?f=" + getAction(PhpFunction.INSERT_JSON));
+                        "http://" + IP + "/sendjson/server.php?f=" + getAction(PhpFunction.INSERT_JSON));
                 break;
 
-            case R.id.btn_insert_json_compressed:
+            case R.id.btn_print_php_info:
                 new HttpAsyncTask().execute(
-                        "http://" + IP + "/sendjson/test.php?f=" + getAction(PhpFunction.INSERT_JSON_COMP));
+                        "http://" + IP + "/sendjson/server.php?f=" + getAction(PhpFunction.PRINT_PHP_INFO));
                 break;
         }
     }
-
-
-//    public String postJson(String _url) {
-//
-//        HashMap<String, String> map = getDummies();
-//
-//
-//        HttpClient httpclient = new DefaultHttpClient();
-//        HttpPost httppost = new HttpPost(_url);
-//
-//        JSONObject jsonObject = new JSONObject();
-//
-//        try {
-//
-//            for (Map.Entry<String, String> entry : map.entrySet()) {
-//                jsonObject.put(entry.getKey(), entry.getValue());
-//            }
-//
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//        List<NameValuePair> nameValuePairs = new ArrayList<>();
-//        nameValuePairs.add(new BasicNameValuePair("json", jsonObject.toString()));
-//
-//        try {
-//            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-//            HttpResponse response = httpclient.execute(httppost);
-//            Log.i(TAG, "postJson: " + response);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return "FAILED";
-//        }
-//
-//        return "PASSED";
-//    }
 
 
     public String postJson(String _url) {
         HttpClient httpclient = new DefaultHttpClient();
         HttpPost httppost = new HttpPost(_url);
 
-        // original data
+        // original data, contains some overhead
         LinkedHashMap<String, String> mapContent = getDummies();
 
         // map
@@ -155,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mapMapping.put(keyFull, keyShortened);
         }
 
-        // map object to send - aka "the header"
+        // map object to send - aka 'mapping'
         JSONObject jsonObjectMapping = new JSONObject();
         try {
             for (Map.Entry<String, String> entry : mapMapping.entrySet()) {
@@ -166,26 +145,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
 
-        // shortened key and value - aka "the data"
-        JSONObject jsonObjectContent = new JSONObject();
-        try {
-            for (Map.Entry<String, String> entry : mapContent.entrySet()) {
-                String shortKey = mapMapping.get(entry.getKey());
-                jsonObjectContent.put(shortKey, entry.getValue());
+        JSONArray jsonArrayDataContainer = new JSONArray();
+        int size = 10;
+        for (int numbered = 0; numbered < size; numbered++) {
+            // shortened key and value - aka 'data'
+            JSONObject jsonObjectContent = new JSONObject();
+            try {
+                for (Map.Entry<String, String> entry : mapContent.entrySet()) {
+                    String shortKey = mapMapping.get(entry.getKey());
+                    String data = entry.getValue() + numbered;
+                    jsonObjectContent.put(shortKey, data);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            jsonArrayDataContainer.put(jsonObjectContent);
+        }
+
+        // map object to send - aka 'header'
+        JSONObject headerInfo = new JSONObject();
+        try {
+            headerInfo.put("size", size);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
 
-        // container holds "the header" and "the data" json-objects
+        // container holds 'header', 'mapping' and 'data'
         JSONArray jsonArray = new JSONArray();
-
+        jsonArray.put(headerInfo);
         jsonArray.put(jsonObjectMapping);
-        jsonArray.put(jsonObjectContent);
+        jsonArray.put(jsonArrayDataContainer);
 
 
-        Log.e(TAG, "postJson: " + jsonArray.toString());
+        // show the whole message
+        Log.i(TAG, "postJson: " + jsonArray.toString());
 
         List<NameValuePair> nameValuePairs = new ArrayList<>();
         nameValuePairs.add(new BasicNameValuePair("json", jsonArray.toString()));
@@ -193,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
             HttpResponse response = httpclient.execute(httppost);
-            Log.i(TAG, "postJson: " + response);
+            Log.i(TAG, "postJson: " + response.getStatusLine());
         } catch (IOException e) {
             e.printStackTrace();
             return "FAILED";
@@ -205,26 +199,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @NonNull
     private LinkedHashMap<String, String> getDummies() {
         LinkedHashMap<String, String> map = new LinkedHashMap<>();
-        map.put("some_variable_name_with_many_characters_1", "Alpha");
-        map.put("some_variable_name_with_many_characters_2", "Beta");
-        map.put("some_variable_name_with_many_characters_3", "Charlie");
+        map.put("some_variable_name_with_many_characters_1", "Alphaaa");
+        map.put("some_variable_name_with_many_characters_2", "Betaaaa");
+        map.put("some_variable_name_with_many_characters_3", "");
         return map;
-    }
-
-
-    private String getAction(PhpFunction which) {
-        switch (which) {
-            case WRITE_JSON:
-                return "writeJsonInFile";
-            case CREATE_DB:
-                return "createDatabase";
-            case INSERT_JSON:
-                return "insertJsonInDatabase";
-            case INSERT_JSON_COMP:
-                return "insertJsonInDatabaseCompressed";
-            default:
-                return "";
-        }
     }
 
 

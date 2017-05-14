@@ -56,11 +56,11 @@
         android:text="Insert JSON" />
 
     <Button
-        android:id="@+id/btn_insert_json_compressed"
+        android:id="@+id/btn_print_php_info"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:onClick="onClick"
-        android:text="Insert JSON COMP" />
+        android:text="Print php Info" />
 
 </LinearLayout>

@@ -5,7 +5,7 @@ This module shows how to send a JSON Object to a servlet. The JSON Object will b
 
 ## Structure & Setup
 
-The server-side code is located in `php_server`. Use XAMPP to run the code inside `test.php`.
+The server-side code is located in `php_server`. Use XAMPP to run the code inside `server.php`.
 
 Don't forget to alter the IP-address inside `MainActivity.java`.
 
