@@ -199,9 +199,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @NonNull
     private LinkedHashMap<String, String> getDummies() {
         LinkedHashMap<String, String> map = new LinkedHashMap<>();
-        map.put("some_variable_name_with_many_characters_1", "Alphaaa");
-        map.put("some_variable_name_with_many_characters_2", "Betaaaa");
-        map.put("some_variable_name_with_many_characters_3", "");
+        map.put("some_variable_name_with_many_characters_1", "A");
+        map.put("some_variable_name_with_many_characters_2", "B");
+        map.put("some_variable_name_with_many_characters_3", ""); // INTEGER in remote(!)
         return map;
     }
 
