@@ -32,10 +32,35 @@
         android:textSize="18dp" />
 
     <Button
-        android:id="@+id/btn_post"
+        android:id="@+id/btn_write_json"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="POST" />
+        android:onClick="onClick"
+        android:text="Write JSON" />
+
+    <Button
+        android:id="@+id/btn_create_database"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onClick"
+        android:text="Create database" />
+
+    <Button
+        android:id="@+id/btn_insert_json"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onClick"
+        android:text="Insert JSON" />
+
+    <Button
+        android:id="@+id/btn_insert_json_compressed"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onClick"
+        android:text="Insert JSON COMP" />
 
 </LinearLayout>
