@@ -26,8 +26,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 /**
- * @author Martin Pfeffer
- *         <a href="mailto:martin.pfeffer@celox.io">martin.pfeffer@celox.io</a>
+ * @author Martin Pfeffer <a href="mailto:martin.pfeffer@celox.io">martin.pfeffer@celox.io</a>
  * @see <a href="https://celox.io">https://celox.io</a>
  */
 
@@ -84,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnConnect.setEnabled(true);
     }
 
-    static class UdpClientHandler extends Handler {
+    public static class UdpClientHandler extends Handler {
         public static final int UPDATE_STATE = 0;
         public static final int UPDATE_MSG = 1;
         public static final int UPDATE_END = 2;
