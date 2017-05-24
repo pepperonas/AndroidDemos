@@ -41,6 +41,11 @@ function printPhpInfo()
             padding: 30px;
         }
 
+        .div_horizontal {
+            margin: 20px;
+            display: inline-block;
+        }
+
         .demo-card-wide.mdl-card {
             width: 386px;
         }
@@ -67,39 +72,99 @@ function printPhpInfo()
 </head>
 <body>
 
-<div class="demo-card-wide mdl-card mdl-shadow--2dp">
 
-    <div class="mdl-card__title">Title</div>
+<div>
 
-    <div class="mdl-card__media" style="padding: 12px;">Headline</div>
+    <!--  Overview  -->
+    <div class="div_horizontal">
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
 
-    <div class="mdl-card__supporting-text">Question
+            <div class="mdl-card__title">Overview</div>
 
-        <!--        <form name="TextForm" id="container_layout_text" answerable="--><?php //echo time() ?><!--">-->
-        <form name="TextForm" id="container_layout_text" answerable="">
-            <!--First text field (description)-->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label desc_value" id="des_div_0">
-                <input class="mdl-textfield__input" type="text" id="des_in_0">
-                <label class="mdl-textfield__label" for="des_in_0" id="des_la_0">Description...</label>
+            <div class="mdl-card__media" style="padding: 12px;">Headline</div>
+
+            <div class="mdl-card__supporting-text">
+
+                <!--Insert layout here-->
             </div>
-            <!--Second text field (value)-->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label desc_value" id="val_div_0">
-                <input class="mdl-textfield__input" type="text" id="val_in_0">
-                <label class="mdl-textfield__label" for="val_in_0" id="val_la_0">Value...</label>
-            </div>
-            <!--      GENERATED ROWS      -->
-        </form>
+
+            <!--Action buttons to reset and save layout-->
+            <!--            <div class="mdl-card__actions mdl-card--border">-->
+            <!--                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="btnRemove">REMOVE</a>-->
+            <!--                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="addText">ADD</a>-->
+            <!--                <a download="layout.xml" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"-->
+            <!--                   id="btnSave">SAVE</a>-->
+            <!--            </div>-->
+
+        </div>
+
     </div>
 
-    <!--Action buttons to reset and save layout-->
-    <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="btnRemove">REMOVE</a>
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="addText">ADD</a>
-        <a download="layout.xml" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="btnSave">SAVE</a>
+    <!--  Generated Layout  -->
+    <div class="div_horizontal">
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+
+            <div class="mdl-card__title">Title</div>
+
+            <div class="mdl-card__media" style="padding: 12px;">Headline</div>
+
+            <div class="mdl-card__supporting-text">Question
+
+                <form name="TextForm" id="container_layout_text" answerable="">
+                    <!--First text field (description)-->
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label desc_value" id="des_div_0">
+                        <input class="mdl-textfield__input" type="text" id="des_in_0">
+                        <label class="mdl-textfield__label" for="des_in_0" id="des_la_0">Description...</label>
+                    </div>
+                    <!--Second text field (value)-->
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label desc_value" id="val_div_0">
+                        <input class="mdl-textfield__input" type="text" id="val_in_0">
+                        <label class="mdl-textfield__label" for="val_in_0" id="val_la_0">Value...</label>
+                    </div>
+                    <!--      GENERATED ROWS      -->
+                </form>
+            </div>
+
+            <!--Action buttons to reset and save layout-->
+            <!--            <div class="mdl-card__actions mdl-card--border">-->
+            <!--                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="btnRemove">REMOVE</a>-->
+            <!--                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="addText">ADD</a>-->
+            <!--                <a download="layout.xml" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"-->
+            <!--                   id="btnSave">SAVE</a>-->
+            <!--            </div>-->
+
+        </div>
+    </div>
+
+    <!--  Controller  -->
+    <div class="div_horizontal">
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+
+            <div class="mdl-card__title">Controller</div>
+
+            <div class="mdl-card__media" style="padding: 12px;">Headline</div>
+
+            <div class="mdl-card__supporting-text">Question
+
+
+                <!--  Insert controller here  -->
+
+            </div>
+
+            <!--Action buttons to reset and save layout-->
+            <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="btnRemove">REMOVE</a>
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="addText">ADD</a>
+                <a download="layout.xml" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+                   id="btnSave">SAVE</a>
+            </div>
+
+        </div>
     </div>
 
 </div>
 
+<!--Snackbar-->
 <div id="the_snackbar" class="mdl-js-snackbar mdl-snackbar">
     <div class="mdl-snackbar__text"></div>
     <button class="mdl-snackbar__action" type="button"></button>
