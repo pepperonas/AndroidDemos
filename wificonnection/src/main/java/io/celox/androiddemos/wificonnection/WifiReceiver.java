@@ -14,4 +14,23 @@
  * limitations under the License.
  */
 
-include ':app', ':udpconnection', ':sendjson', ':xmltemplates', ':btconnection', ':wificonnection', ':arduinobluetooth'
+package io.celox.androiddemos.wificonnection;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+
+/**
+ * @author Martin Pfeffer
+ *         <a href="mailto:martin.pfeffer@celox.io">martin.pfeffer@celox.io</a>
+ * @see <a href="https://celox.io">https://celox.io</a>
+ */
+public class WifiReceiver extends BroadcastReceiver {
+
+    private static final String TAG = "WifiReceiver";
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+
+    }
+}

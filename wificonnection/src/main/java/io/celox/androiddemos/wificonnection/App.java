@@ -14,4 +14,20 @@
  * limitations under the License.
  */
 
-include ':app', ':udpconnection', ':sendjson', ':xmltemplates', ':btconnection', ':wificonnection', ':arduinobluetooth'
+package io.celox.androiddemos.wificonnection;
+
+import android.app.Application;
+
+/**
+ * @author Martin Pfeffer
+ *         <a href="mailto:martin.pfeffer@celox.io">martin.pfeffer@celox.io</a>
+ * @see <a href="https://celox.io">https://celox.io</a>
+ */
+public class App extends Application {
+
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
+}
