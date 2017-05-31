@@ -66,22 +66,9 @@ public class MainActivity extends AppCompatActivity {
         mTvInfo = (TextView) findViewById(R.id.tv_info);
         mTvInfo.setText(makeDate());
 
+
         wifiManager = (WifiManager) getApplicationContext()
                 .getSystemService(Context.WIFI_SERVICE);
-
-
-        List<WifiConfiguration> wifiConfigurations = wifiManager.getConfiguredNetworks();
-
-        for (WifiConfiguration wc : wifiConfigurations) {
-            if (wc.SSID.equals("\"BucketList Gast\"")) {
-                Log.i(TAG, "start _ctsw: " + wc.BSSID);
-            } else if (wc.SSID.equals("\"BucketList TC\"")) {
-                Log.i(TAG, "start _ctsw: " + wc.SSID);
-                wifiManager.enableNetwork(wc.networkId, true);
-            }
-        }
-
-//        manager = new WifiConnectionManager(this);
 
     }
 
@@ -115,24 +102,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void connectToSpecificWifi(boolean guestWifi) {
+    public void connectToSpecificWifi(final boolean guestWifi) {
         Log.i(TAG, "connectToSpecificWifi: guestWifi=" + guestWifi);
-
-//        WifiConnectionManager.setBindingEnabled(true);
-
-
-//        manager.connectToAvailableSSID(guestWifi ? "BucketList Gast" : "BucketList TC",
-//                new WifiConnectionManager.ConnectionStateChangedListener() {
-//                    @Override
-//                    public void onConnectionEstablished() {
-//                        Log.i(TAG, "onConnectionEstablished: ");
-//                    }
-//
-//                    @Override
-//                    public void onConnectionError(String reason) {
-//                        Log.i(TAG, "onConnectionError: " + reason);
-//                    }
-//                });
 
 
         List<WifiConfiguration> wifiConfigurations = wifiManager.getConfiguredNetworks();
@@ -140,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "_ctsw: " + new SimpleDateFormat("HH:mm:ss:SSS", Locale.GERMANY).format(new Date()));
 
         for (WifiConfiguration wc : wifiConfigurations) {
-            if (guestWifi && wc.SSID.equals("\"BucketList Gast\"") ) {
+            if (guestWifi && wc.SSID.equals("\"BucketList Gast\"")) {
 
                 Log.i(TAG, "_ctsw: " + wc.toString());
 

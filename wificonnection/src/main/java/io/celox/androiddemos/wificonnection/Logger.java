@@ -18,8 +18,6 @@
 //
 //import android.util.Log;
 //
-//import com.intentfilter.wificonnect.BuildConfig;
-//
 //public class Logger {
 //    private String LOG_TAG;
 //

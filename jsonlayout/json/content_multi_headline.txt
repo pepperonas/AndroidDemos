@@ -1,0 +1,138 @@
+[
+  {
+    "headlines": [
+      {
+        "id": "4",
+        "template_id": "3",
+        "name": "The First Question",
+        "sort_headline": "1",
+        "creation_time": "2017-05-29 16:22:59",
+        "question_position": "0",
+        "questions": [
+          {
+            "id": "4",
+            "headline_id": "4",
+            "sort": "0",
+            "question": "Select OS",
+            "answer": "macOS",
+            "keyword": "",
+            "mandatory": "0",
+            "question_type": "checkbox"
+          },
+          {
+            "id": "5",
+            "headline_id": "4",
+            "sort": "4",
+            "question": "Select Fruits",
+            "answer": "Apples",
+            "keyword": "",
+            "mandatory": "1",
+            "question_type": "checkbox"
+          },
+          {
+            "id": "4",
+            "headline_id": "4",
+            "sort": "1",
+            "question": "Select Language",
+            "answer": "German",
+            "keyword": "",
+            "mandatory": "0",
+            "question_type": "dropdown"
+          },
+          {
+            "id": "4",
+            "headline_id": "4",
+            "sort": "2",
+            "question": "Done?",
+            "answer": "Yes!",
+            "keyword": null,
+            "mandatory": "1",
+            "question_type": "radiobutton"
+          },
+          {
+            "id": "4",
+            "headline_id": "4",
+            "sort": "3",
+            "question": "textbox?",
+            "input_type": "text",
+            "keyword": null,
+            "min_value": "0",
+            "max_value": "100",
+            "decimals": "2",
+            "date_time_format": "MM:HH",
+            "operator": "<",
+            "variable": "$datetime$",
+            "mandatory": "0",
+            "question_type": "textbox"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "template_id": "3",
+        "name": "A Second Question",
+        "sort_headline": "2",
+        "creation_time": "2017-05-29 21:29:59",
+        "question_position": "0",
+        "questions": [
+          {
+            "id": "14",
+            "headline_id": "5",
+            "sort": "0",
+            "question": "Select Toppings",
+            "answer": "Yellow",
+            "keyword": "",
+            "mandatory": "0",
+            "question_type": "checkbox"
+          },
+          {
+            "id": "15",
+            "headline_id": "5",
+            "sort": "4",
+            "question": "Choose colors!",
+            "answer": "Teal",
+            "keyword": "",
+            "mandatory": "1",
+            "question_type": "checkbox"
+          },
+          {
+            "id": "14",
+            "headline_id": "5",
+            "sort": "1",
+            "question": "Select Car!",
+            "answer": "Bugatti",
+            "keyword": "",
+            "mandatory": "0",
+            "question_type": "dropdown"
+          },
+          {
+            "id": "4",
+            "headline_id": "5",
+            "sort": "2",
+            "question": "Listen Radio?",
+            "answer": "Yeah",
+            "keyword": "tech",
+            "mandatory": "1",
+            "question_type": "radiobutton"
+          },
+          {
+            "id": "14",
+            "headline_id": "5",
+            "sort": "3",
+            "question": "Enter Text",
+            "input_type": "text",
+            "keyword": null,
+            "min_value": "",
+            "max_value": "",
+            "decimals": "",
+            "date_time_format": "MM:HH",
+            "operator": "",
+            "variable": "$datetime$",
+            "mandatory": "0",
+            "question_type": "textbox"
+          }
+        ]
+      }
+    ]
+  }
+]

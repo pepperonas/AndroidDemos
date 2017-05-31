@@ -30,8 +30,7 @@
 //import android.net.wifi.WifiManager;
 //import android.support.annotation.NonNull;
 //
-//import com.intentfilter.wificonnect.ScanResultsListener;
-//import com.intentfilter.wificonnect.helpers.Logger;
+//import java.util.logging.Logger;
 //
 //import static android.content.Context.CONNECTIVITY_SERVICE;
 //import static android.net.wifi.WifiManager.EXTRA_NETWORK_INFO;

@@ -23,14 +23,11 @@
 //import android.os.Build;
 //import android.os.Handler;
 //
-//import com.intentfilter.wificonnect.AdvancedConnectionState;
-//import com.intentfilter.wificonnect.ScanResultsListener;
-//import com.intentfilter.wificonnect.helpers.Logger;
-//
 //import java.util.Collections;
 //import java.util.List;
 //import java.util.concurrent.locks.Lock;
 //import java.util.concurrent.locks.ReentrantLock;
+//import java.util.logging.Logger;
 //
 //import static java.lang.String.format;
 //

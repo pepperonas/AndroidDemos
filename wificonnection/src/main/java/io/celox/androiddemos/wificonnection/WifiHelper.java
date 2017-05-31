@@ -22,12 +22,10 @@
 //import android.net.wifi.WifiManager;
 //import android.text.TextUtils;
 //
-//import com.intentfilter.wificonnect.helpers.Logger;
-//import com.intentfilter.wificonnect.helpers.StringUtil;
-//
 //import java.util.Collections;
 //import java.util.Comparator;
 //import java.util.List;
+//import java.util.logging.Logger;
 //
 //import static java.lang.String.format;
 //
@@ -43,6 +41,10 @@
 //    boolean connectToSSID(String SSID) {
 //        WifiConfiguration configuration = createOpenWifiConfiguration(SSID);
 //        logger.d("Priority assigned to configuration is " + configuration.priority);
+//
+//        // set WPA key
+////        configuration.preSharedKey = "\""+ networkPass +"\"";
+//
 //
 //        int networkId = wifiManager.addNetwork(configuration);
 //        logger.d("networkId assigned while adding network is " + networkId);
