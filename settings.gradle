@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-include ':app', ':udpconnection', ':sendjson', ':xmltemplates', ':btconnection', ':wificonnection', ':async', ':jsonlayout'
+include ':app', ':udpconnection', ':sendjson', ':xmltemplates', ':btconnection', ':wificonnection', ':async', ':jsonlayout', ':callbacks', ':obd-bt'
